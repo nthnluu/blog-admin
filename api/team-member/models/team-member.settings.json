@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_members",
+  "info": {
+    "name": "Team Member",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "admin_user": {
+      "plugin": "admin",
+      "model": "user"
+    },
+    "profilePicture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "position": {
+      "type": "string",
+      "required": true
+    },
+    "index": {
+      "type": "integer",
+      "unique": true,
+      "required": true,
+      "private": false
+    },
+    "linkedin": {
+      "type": "string",
+      "required": true,
+      "default": "https://www.linkedin.com/feed/"
+    }
+  }
+}
